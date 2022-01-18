@@ -241,7 +241,9 @@ export const run = async (entrySourceFiles: string[], outputPath: string, option
     fs.outputFileSync(newPath, printer.printFile(sourceFile).trim());
   }
 
-  function actOnSourceFile(sourceFile: ts.SourceFile & { resolvedModules?: Map<any, any> }) {
+  function actOnSourceFile(
+    sourceFile: ts.SourceFile & { resolvedModules?: ts.ModeAwareCache<any> }
+  ) {
     remapImports(sourceFile);
 
     output(sourceFile);
@@ -250,8 +252,8 @@ export const run = async (entrySourceFiles: string[], outputPath: string, option
     // this seems to be a cache TypeScript uses internally
     // I've been looking for a a public API to use, but so far haven't found it.
     // I could create the dependency graph myself, perhaps that'd be better, but I'm OK with this for now.
-    if (sourceFile.resolvedModules && sourceFile.resolvedModules.size > 0) {
-      Array.from(sourceFile.resolvedModules.entries()).forEach(([k, v]) => {
+    if (sourceFile.resolvedModules && sourceFile.resolvedModules.size() > 0) {
+      sourceFile.resolvedModules.forEach((v, k) => {
         if (externals.includes(k)) {
           return;
         }

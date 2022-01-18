@@ -8212,7 +8212,7 @@ __metadata:
     read-pkg-up: ^7.0.1
     regenerator-runtime: ^0.13.7
     ts-dedent: ^2.0.0
-    webpack: ">=4.43.0 <6.0.0"
+    webpack: 4
   peerDependencies:
     "@babel/core": ^7.11.5
     react: ^16.8.0 || ^17.0.0
@@ -16275,13 +16275,13 @@ __metadata:
   linkType: hard
 
 "chromatic@npm:^6.0.2":
-  version: 6.3.4
-  resolution: "chromatic@npm:6.3.4"
+  version: 6.4.0
+  resolution: "chromatic@npm:6.4.0"
   bin:
     chroma: bin/main.cjs
     chromatic: bin/main.cjs
     chromatic-cli: bin/main.cjs
-  checksum: 6e2cf91876a1df9db2b9dcec85e2596cf09a8a236a619ccb221b1e7e81ec3c13200da8b5412dbb2df4c45f81cf9b4c118a5a3aa703c2d57979320d8e09201a2b
+  checksum: 33432ddc37fa2ef98890db7643d8b200814856377a193d379b679353c7b39859aab8c3d8f45a66f66a3d63a4c3a876483138fb6d4a3724408837f88ec8ae79e1
   languageName: node
   linkType: hard
 
@@ -46045,7 +46045,7 @@ typescript@^3.8.3:
   languageName: node
   linkType: hard
 
-"webpack@npm:>=4.43.0 <6.0.0, webpack@npm:^5, webpack@npm:^5.1.0, webpack@npm:^5.9.0":
+"webpack@npm:^5, webpack@npm:^5.1.0, webpack@npm:^5.9.0":
   version: 5.66.0
   resolution: "webpack@npm:5.66.0"
   dependencies:
