@@ -1,3 +1,5 @@
+/// <reference types="compression" />
+
 import { Router, Request, Response } from 'express';
 import { printDuration } from './print-duration';
 

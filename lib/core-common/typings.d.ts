@@ -1,4 +1,3 @@
-import('@types/compression');
 
 declare module 'lazy-universal-dotenv';
 declare module 'pnp-webpack-plugin';
@@ -17,7 +16,7 @@ declare module 'file-system-cache' {
     extension?: string;
   }
 
-  export declare class FileSystemCache {
+  export class FileSystemCache {
     constructor(options: Options);
     path(key: string): string;
     fileExists(key: string): Promise<boolean>;
@@ -32,7 +31,6 @@ declare module 'file-system-cache' {
     load(): Promise<{ files: Array<{ path: string; value: any }> }>;
   }
 
-  function create(options: Options): FileSystemCache;
+  export default function create(options: Options): FileSystemCache;
 
-  export = create;
 }

@@ -8,5 +8,5 @@
     "resolveJsonModule": true,
     "allowJs": true
   },
-  "include": ["src/**/*", "src/**/*.json"]
+  "include": ["src/**/*", "src/**/*.json", "typings.d.ts"]
 }

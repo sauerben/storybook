@@ -10,7 +10,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "typings.d.ts"],
   "exclude": [
     "src/**/*.test.*",
     "src/**/tests/**/*",

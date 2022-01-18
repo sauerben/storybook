@@ -5,7 +5,7 @@
     "types": ["webpack-env"]
   },
   "include": [
-    "src/**/*"
+    "src/**/*", "typings.d.ts"
   ],
   "exclude": [
     "src/**/*.test.*",

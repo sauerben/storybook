@@ -1,4 +1,7 @@
 /* eslint-disable operator-assignment */
+
+import { ElementMeasurements, FloatingAlignment } from '../types';
+
 /* eslint-disable no-param-reassign */
 type LabelType = 'margin' | 'padding' | 'border' | 'content';
 type LabelPosition = 'top' | 'right' | 'bottom' | 'left' | 'center';

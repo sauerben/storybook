@@ -6,7 +6,7 @@
     "resolveJsonModule": true,
     "lib": ["ESNext", "DOM", "DOM.Iterable"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "typings.d.ts"],
   "exclude": [
     "src/**/*.test.*",
     "src/**/__tests__/**/*",

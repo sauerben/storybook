@@ -3,6 +3,7 @@
  * Based on https://gist.github.com/awestbro/e668c12662ad354f02a413205b65fce7
  */
 import global from 'global';
+import { Dimensions, ElementMeasurements, Extremities, FloatingAlignment } from '../types';
 import { draw } from './canvas';
 import { labelStacks, Label, LabelStack } from './labels';
 

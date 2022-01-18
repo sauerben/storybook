@@ -103,6 +103,7 @@ export const run = async (entrySourceFiles: string[], outputPath: string, option
     const relative = path.relative(basePath, filePath);
     let newPath = '';
 
+    // TODO add comments to explain what's happening
     if (relative.includes('node_modules/')) {
       const [, ...parts] = relative.split('node_modules/');
       const filename = parts.join('node_modules/').split('/').join('-');
@@ -131,6 +132,7 @@ export const run = async (entrySourceFiles: string[], outputPath: string, option
     referencedSourceFile: string,
     target: string
   ) {
+    // TODO find a better name for this variable
     const targetRelativeToSource2 = path
       .relative(filesRemapping.get(currentSourceFile), filesRemapping.get(referencedSourceFile))
       .slice(1)
@@ -253,6 +255,8 @@ export const run = async (entrySourceFiles: string[], outputPath: string, option
         if (externals.includes(k)) {
           return;
         }
+
+        // TODO what happens in cyclical graphs
         actOnSourceFile(sourceFiles.find((f) => f.fileName === v.resolvedFileName));
       });
     }

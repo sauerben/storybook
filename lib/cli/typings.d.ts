@@ -1,14 +1,8 @@
-declare module 'global';
+
+
+declare module '@storybook/codemod';
+declare module 'envinfo';
 declare module '@storybook/semver';
-declare module 'unfetch/dist/unfetch';
-declare module 'lazy-universal-dotenv';
-declare module 'pnp-webpack-plugin';
-declare module '@storybook/theming/paths';
-declare module '@storybook/ui/paths';
-declare module 'better-opn';
-declare module 'open';
-declare module 'x-default-browser';
-declare module '@storybook/ui';
 
 declare module 'file-system-cache' {
   export interface Options {
@@ -17,7 +11,7 @@ declare module 'file-system-cache' {
     extension?: string;
   }
 
-  export declare class FileSystemCache {
+  export class FileSystemCache {
     constructor(options: Options);
     path(key: string): string;
     fileExists(key: string): Promise<boolean>;
@@ -32,7 +26,5 @@ declare module 'file-system-cache' {
     load(): Promise<{ files: Array<{ path: string; value: any }> }>;
   }
 
-  function create(options: Options): FileSystemCache;
-
-  export = create;
+  export default function create(options: Options): FileSystemCache;
 }

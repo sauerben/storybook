@@ -4,6 +4,6 @@
     "rootDir": "./src",
     "types": ["webpack-env", "node"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "typings.d.ts"],
   "exclude": ["src/__tests__/**/*"]
 }
