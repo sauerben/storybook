@@ -209,7 +209,7 @@ const Story: FunctionComponent<StoryProps> = (props) => {
   return (
     <div id={storyBlockIdFromId(story.id)}>
       <MDXProvider components={resetComponents}>
-        <PureStory {...storyProps} />
+        {React.createElement(PureStory, storyProps)}
       </MDXProvider>
     </div>
   );

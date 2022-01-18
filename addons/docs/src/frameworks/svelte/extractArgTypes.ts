@@ -103,6 +103,7 @@ const parseTypeToControl = (type: JSDocType): any => {
         return { type: type.type };
     }
   } else if (type.kind === 'union') {
+    // @ts-ignore
     if (Array.isArray(type.type) && !type.type.find((t) => t.type !== 'string')) {
       return {
         type: 'radio',

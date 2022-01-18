@@ -149,5 +149,5 @@ export const Source: FC<SourceProps> = (props) => {
   const sourceContext = useContext(SourceContext);
   const docsContext = useContext(DocsContext);
   const sourceProps = getSourceProps(props, docsContext, sourceContext);
-  return <PureSource {...sourceProps} />;
+  return React.createElement(PureSource, sourceProps);
 };

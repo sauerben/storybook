@@ -40,7 +40,7 @@ type StoryProps = BaseProps & {
   showComponent?: boolean;
 };
 
-type ArgsTableProps = BaseProps | OfProps | ComponentsProps | StoryProps;
+export type ArgsTableProps = BaseProps | OfProps | ComponentsProps | StoryProps;
 
 const useArgs = (
   storyId: string,
@@ -162,7 +162,7 @@ export const StoryTable: FC<
     const story = useStory(storyId, context);
     // eslint-disable-next-line prefer-const
     let [args, updateArgs, resetArgs] = useArgs(storyId, context);
-    if (!story) return <PureArgsTable isLoading updateArgs={updateArgs} resetArgs={resetArgs} />;
+    if (!story) return React.createElement(PureArgsTable,{...{isLoading: true,updateArgs, resetArgs}});
 
     const argTypes = filterArgTypes(story.argTypes, include, exclude);
 
@@ -194,9 +194,9 @@ export const StoryTable: FC<
       }
       tabs = addComponentTabs(tabs, subcomponents, context, include, exclude);
     }
-    return <TabbedArgsTable tabs={tabs} sort={sort} />;
+    return React.createElement(TabbedArgsTable, {tabs,sort} );
   } catch (err) {
-    return <PureArgsTable error={err.message} />;
+    return React.createElement(PureArgsTable, {error: err.message});
   }
 };
 
@@ -205,7 +205,7 @@ export const ComponentsTable: FC<ComponentsProps> = (props) => {
   const { components, include, exclude, sort } = props;
 
   const tabs = addComponentTabs({}, components, context, include, exclude);
-  return <TabbedArgsTable tabs={tabs} sort={sort} />;
+  return React.createElement(TabbedArgsTable, {tabs,sort});
 };
 
 export const ArgsTable: FC<ArgsTableProps> = (props) => {
@@ -223,7 +223,7 @@ export const ArgsTable: FC<ArgsTableProps> = (props) => {
 
   const main = getComponent(props, context);
   if (storyName) {
-    return <StoryTable {...(props as StoryProps)} component={main} {...{ subcomponents, sort }} />;
+    return React.createElement(StoryTable, {...(props as StoryProps), component: main, subcomponents, sort });
   }
 
   if (!components && !subcomponents) {
@@ -234,20 +234,19 @@ export const ArgsTable: FC<ArgsTableProps> = (props) => {
       mainProps = { error: err.message };
     }
 
-    return <PureArgsTable {...mainProps} sort={sort} />;
+    return React.createElement(PureArgsTable, {...mainProps, sort });
   }
 
   if (components) {
-    return <ComponentsTable {...(props as ComponentsProps)} {...{ components, sort }} />;
+    return React.createElement(ComponentsTable, {...(props as ComponentsProps), components, sort});
   }
 
   const mainLabel = getComponentName(main);
   return (
-    <ComponentsTable
-      {...(props as ComponentsProps)}
-      components={{ [mainLabel]: main, ...subcomponents }}
-      sort={sort}
-    />
+    React.createElement(ComponentsTable,
+      {...(props as ComponentsProps),
+      components: { [mainLabel]: main, ...subcomponents },
+      sort})
   );
 };
 

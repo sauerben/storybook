@@ -18,7 +18,7 @@ function renderAnchor() {
   const context = useContext(DocsContext);
   const anchorId = getFirstStoryId(context) || context.id;
 
-  return <Anchor storyId={anchorId} />;
+  return React.createElement(Anchor, { storyId: anchorId });
 }
 
 /**

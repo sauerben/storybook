@@ -15,5 +15,7 @@ export const Primary: FC<PrimaryProps> = ({ name }) => {
   if (componentStories) {
     story = name ? componentStories.find((s: Story<any>) => s.name === name) : componentStories[0];
   }
-  return story ? <DocsStory {...story} expanded={false} withToolbar /> : null;
+  return story
+    ? React.createElement(DocsStory, { ...story, expanded: false, withToolbar: true })
+    : null;
 };

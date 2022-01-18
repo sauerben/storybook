@@ -20,9 +20,9 @@
     "**/dist",
     "node_modules",
     "**/node_modules",
-    "**/*.spec.ts",
+    "**/*.spec.*",
     "**/__tests__/**",
-    "**/*.test.ts",
+    "**/*.test.*",
     "**/FlowType*",
     "**/setup-jest.ts"
   ],

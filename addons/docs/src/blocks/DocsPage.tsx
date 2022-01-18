@@ -9,11 +9,11 @@ import { Stories } from './Stories';
 
 export const DocsPage: FC = () => (
   <>
-    <Title />
-    <Subtitle />
-    <Description />
-    <Primary />
-    <ArgsTable story={PRIMARY_STORY} />
-    <Stories />
+    {React.createElement(Title, {})}
+    {React.createElement(Subtitle, {})}
+    {React.createElement(Description, {})}
+    {React.createElement(Primary, {})}
+    {React.createElement(ArgsTable, { story: PRIMARY_STORY })}
+    {React.createElement(Stories, {})}
   </>
 );

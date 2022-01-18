@@ -4,7 +4,7 @@ import dedent from 'ts-dedent';
 import { Canvas } from './Canvas';
 
 export const Preview = deprecate(
-  (props: ComponentProps<typeof Canvas>) => <Canvas {...props} />,
+  (props: ComponentProps<typeof Canvas>) => React.createElement(Canvas, props),
   dedent`
     Preview doc block has been renamed to Canvas.
 

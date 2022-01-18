@@ -4,12 +4,12 @@
     "rootDir": "./src",
     "types": ["webpack-env", "jest", "node"]
   },
-  "include": ["src/**/*", "typings.d.ts"],
+  "include": ["src/**/*"],
   "exclude": [
-    "src/**/*.test.*",
-    "src/**/__tests__/**/*",
-    "src/**/*.stories.*",
-    "src/**/*.mockdata.*",
-    "src/**/__testfixtures__/**"
+    "**/*.test.*",
+    "**/__tests__/**/*",
+    "**/*.stories.*",
+    "**/*.mockdata.*",
+    "**/__testfixtures__/**"
   ]
 }

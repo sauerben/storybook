@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React, { useContext, FunctionComponent } from 'react';
 import { DocsContext } from './DocsContext';
 import { DocsStory } from './DocsStory';
@@ -21,8 +22,11 @@ export const Stories: FunctionComponent<StoriesProps> = ({ title, includePrimary
   }
   return (
     <>
-      <Heading>{title}</Heading>
-      {stories.map((story) => story && <DocsStory key={story.id} {...story} expanded />)}
+      {React.createElement(Heading, {}, [title])}
+      {stories.map(
+        (story) =>
+          story && React.createElement(DocsStory, { key: story.id, ...story, expanded: true })
+      )}
     </>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 import React, { FC, ReactElement, ReactNode, ReactNodeArray, useContext } from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { toId, storyNameFromExport, AnyFramework } from '@storybook/csf';
@@ -76,7 +77,7 @@ export const Canvas: FC<CanvasProps> = (props) => {
 
   return (
     <MDXProvider components={resetComponents}>
-      <PurePreview {...previewProps}>{children}</PurePreview>
+      {React.createElement(PurePreview, previewProps, children)}
     </MDXProvider>
   );
 };

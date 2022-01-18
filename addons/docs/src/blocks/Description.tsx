@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 import React, { FunctionComponent, useContext } from 'react';
 import { Description, DescriptionProps as PureDescriptionProps } from '@storybook/components';
 import { DocsContext, DocsContextProps } from './DocsContext';
@@ -71,7 +72,7 @@ ${extractComponentDescription(target) || ''}
 const DescriptionContainer: FunctionComponent<DescriptionProps> = (props) => {
   const context = useContext(DocsContext);
   const { markdown } = getDescriptionProps(props, context);
-  return markdown ? <Description markdown={markdown} /> : null;
+  return markdown ? React.createElement(Description, { markdown }) : null;
 };
 
 // since we are in the docs blocks, assume default description if for primary component story

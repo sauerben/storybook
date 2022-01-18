@@ -82,17 +82,23 @@ export const DocsContainer: FunctionComponent<DocsContainerProps> = ({ context, 
     }
   }, [storyId]);
 
-  return (
-    <DocsContext.Provider value={context}>
-      <SourceContainer>
-        <ThemeProvider theme={theme}>
-          <MDXProvider components={allComponents}>
-            <DocsWrapper className="sbdocs sbdocs-wrapper">
-              <DocsContent className="sbdocs sbdocs-content">{children}</DocsContent>
-            </DocsWrapper>
-          </MDXProvider>
-        </ThemeProvider>
-      </SourceContainer>
-    </DocsContext.Provider>
+  return React.createElement(
+    DocsContext.Provider,
+    { value: context },
+    React.createElement(
+      SourceContainer,
+      {},
+      React.createElement(
+        ThemeProvider,
+        { theme },
+        <MDXProvider components={allComponents}>
+          {React.createElement(
+            DocsWrapper,
+            { className: 'sbdocs sbdocs-wrapper' },
+            React.createElement(DocsContent, { className: 'sbdocs sbdocs-content' }, children)
+          )}
+        </MDXProvider>
+      )
+    )
   );
 };

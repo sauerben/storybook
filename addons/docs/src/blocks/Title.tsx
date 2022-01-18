@@ -19,5 +19,5 @@ export const Title: FunctionComponent<TitleProps> = ({ children }) => {
   if (!text) {
     text = extractTitle(context);
   }
-  return text ? <PureTitle className="sbdocs-title">{text}</PureTitle> : null;
+  return text ? React.createElement(PureTitle, { className: 'sbdocs-title' }, [text]) : null;
 };

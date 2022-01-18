@@ -37,5 +37,5 @@ export const SourceContainer: FC<{}> = ({ children }) => {
     return () => channel.off(SNIPPET_RENDERED, handleSnippetRendered);
   });
 
-  return <SourceContext.Provider value={{ sources }}>{children}</SourceContext.Provider>;
+  return React.createElement(SourceContext.Provider, { value: { sources } }, children);
 };

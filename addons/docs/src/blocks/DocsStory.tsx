@@ -36,13 +36,9 @@ export const DocsStory: FunctionComponent<DocsStoryProps> = ({
 
   const subheading = expanded && name;
 
-  return (
-    <Anchor storyId={id}>
-      {subheading && <Subheading>{subheading}</Subheading>}
-      {description && <Description markdown={description} />}
-      <Canvas withToolbar={withToolbar}>
-        <Story id={id} parameters={parameters} />
-      </Canvas>
-    </Anchor>
-  );
+  return React.createElement(Anchor, { storyId: id }, [
+    subheading ? React.createElement(Subheading, {}, ['subheading']) : null,
+    description ? React.createElement(Description, { markdown: description }) : null,
+    React.createElement(Canvas, { withToolbar }, [React.createElement(Story, { id, parameters })]),
+  ]);
 };

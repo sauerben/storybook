@@ -9,9 +9,9 @@ interface SubtitleProps {
 export const Subtitle: FunctionComponent<SubtitleProps> = ({ children }) => {
   const { id, storyById } = useContext(DocsContext);
   const { parameters } = storyById(id);
-  let text: JSX.Element | string = children;
+  let text: React.ReactChild | string = children;
   if (!text) {
     text = parameters?.componentSubtitle;
   }
-  return text ? <PureSubtitle className="sbdocs-subtitle">{text}</PureSubtitle> : null;
+  return text ? React.createElement(PureSubtitle, { className: 'sbdocs-subtitle' }, [text]) : null;
 };
