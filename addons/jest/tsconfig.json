@@ -4,9 +4,7 @@
     "rootDir": "./src",
     "types": ["webpack-env", "jest"]
   },
-  "include": [
-    "src/**/*"
-, "typings.d.ts"  ],
+  "include": ["src/**/*", "typings.d.ts"],
   "exclude": [
     "src/**/*.test.*",
     "src/**/tests/**/*",

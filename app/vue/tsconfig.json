@@ -5,9 +5,7 @@
     "types": ["webpack-env", "node"],
     "resolveJsonModule": true
   },
-  "include": [
-    "src/**/*"
-, "typings.d.ts"  ],
+  "include": ["src/**/*", "typings.d.ts"],
   "exclude": [
     "src/**/*.test.*"
   ]

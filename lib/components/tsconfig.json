@@ -2,19 +2,15 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "types": [
-      "jest", "@testing-library/jest-dom"
-    ]
+    "types": ["jest", "@testing-library/jest-dom"]
   },
-  "include": [
-    "src/**/*"
-, "typings.d.ts"  ],
+  "include": ["src/**/*", "typings.d.ts"],
   "exclude": [
-    "src/**/*.test.*",
-    "src/**/tests/**/*",
-    "src/**/__tests__/**/*",
-    "src/**/*.stories.*",
-    "src/**/*.mockdata.*",
-    "src/**/__testfixtures__/**"
+    "**/*.test.*",
+    "**/tests/**/*",
+    "**/__tests__/**/*",
+    "**/*.stories.*",
+    "**/*.mockdata.*",
+    "**/__testfixtures__/**"
   ]
 }
